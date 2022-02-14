@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Adoption Form</title>
+<style>
+body{
+  background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.2)),url('collage.jpeg');
+       background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+}
+
+input,textarea{ 
+background-color:rgba(209,192,200,0.7);
+}
+
+.adop-form{
+background-color:rgba(14, 102, 97,0.55);
+position:relative;
+color:white;
+margin:auto;
+margin-top:30px;
+width:400px;
+height:auto;
+border-style:double;
+border-color:pink;
+border-spacing:2px;
+border-radius:25px;
+}
+
+input,textarea,select{
+border-radius:5px;
+border-color:white;
+color:white;
+}
+
+input:hover,textarea:hover,select:hover{
+border-color:yellow;
+}
+
+
+
+.adop{
+background-color:rgba(255, 240, 250,0.5)transparent;
+margin:auto;
+position:relative;
+width:450px;
+height:690px;
+padding:10px;
+border-radius:35px;
+margin-top:10px;
+}
+table,select{
+background-color:rgba(140, 102, 97,0.55);
+border-style:double;
+border-color:white;
+border-radius:15px;
+margin:auto;
+width:80%;
+border-spacing:0 25px ;
+}
+table:hover{
+border-color:yellow;
+}
+.adop-form:hover{
+border-color:yellow;
+}
+span{
+color:black;
+
+}
+h1{
+width:60%;
+margin:auto;
+}
+h1
+{
+text-align:center;
+font-size:70px;
+color:darkred;
+font-family:courier;
+background-color:rgba(220,220,220,0.9);
+}
+
+</style>
+<script>
+
+function validateForm() {
+  var name = document.forms["myForm"]["fname"].value;
+  var contact = document.forms["myForm"]["fcon"].value;
+  var address = document.forms["myForm"]["fadd"].value;
+  var pincode = document.forms["myForm"]["fpin"].value;
+  var email = document.forms["myForm"]["fid"].value;
+  var petname = document.forms["myForm"]["fpet"].value;
+  
+  if(!isNaN(name)){
+    alert("**Name must only be in Alphabets**");
+    return false;
+	}
+  if ((name.length<2) || (name.length>20)) {
+    alert("*Name length must be in between 2 to 20**");
+    return false;
+  }
+  if(contact.length!=10){
+    alert("**Contact No. must be of 10 digits only**");
+    return false;
+  }
+  if(pincode.length!=6){
+  alert("**Pincode must be of 6 digits only**");
+    return false;
+  }
+  if(email.indexOf('@') <=0){
+  alert("**Incorrect Email format**");
+    return false;
+  }
+  if((email.charAt((email.length)-4)!='.') && (email.charAt((email.length)-3)!='.')){
+  alert("**Incorrect Email format**");
+    return false;
+  }
+  
+}
+</script>
+</head>
+
+<body>
+<div style="position:relative;"><h1 style="border-radius:20px;margin-top:10px"><span>A</span>DOPT<span>IO</span>N <span> F</span>ORM</h1></div>
+<div class="adop" align="center">
+<div class="adop-form" align="center">
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+<h2 style="color:white"><u><b><em>Enter your Personal Details</em></b></u></h2>
+<table>
+<tr>
+<td><u>Name</u> :</td>
+<td>
+<input type="text" name="fname" placeholder="Enter your Name" id="nam" required>
+</td>
+<br>
+</tr>
+<tr>
+<td><u>Contact No.</u> :</td>
+<td>
+<input id="con" type="number" name="fcon" placeholder="+91-XX-XXX-XX-XXX"  required>
+</td>
+</tr>
+<tr>
+<td><u>Address</u> :</td>
+<td>
+<textarea id="add" placeholder="Enter your Address" name="fadd" style="height:100px;width:159px;resize:none" style="overflow:hidden"  required ></textarea>
+</td>
+</tr>
+<tr>
+<td><u>Pincode</u> :</td>
+<td><input id="pin" type="number"  name="fpin" style="overflow:hidden" placeholder="XX-XX-XX" required></td>
+</tr>
+<tr>
+<td><u>Email ID</u> :</td>
+<td><input id="id" type="text" name="fid" placeholder="Enter your Email Id" required></td>
+</tr>
+<tr>
+<td>Select Breed</td>
+<td>
+<select>
+<option value="dog">DOGS</option>
+<option value="cat" >CATS</option>
+<option value="bird">BIRDS</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Pet Name.</td>
+<td><input type="text" maxlength="20" placeholder="Enter PET Name " name="fpet">
+</td>
+</tr>
+</table>
+<br><br>
+<input type="submit" value="Submit" style="background-color:rgba(255, 210, 250,0.8);height:39px;width:80%;color:black;font-style:bold;" ><br>
+<p> </p>
+</form>
+</div>
+</div>
+</body>
+
+
+
+</html>
